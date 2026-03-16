@@ -1,0 +1,52 @@
+aid: in-toto
+name: in-toto
+description: >-
+  in-toto is a CNCF graduated framework for securing the integrity of
+  software supply chains. It provides a specification for generating and
+  verifying metadata about each step in a software supply chain, from source
+  code to deployment. in-toto ensures that each step is performed by the
+  authorized party and that materials and products are not tampered with
+  between steps.
+url: https://in-toto.io
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+- Supply Chain Security
+- Software Integrity
+- Verification
+- Security
+- Cloud Native
+- Graduated
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
+apis:
+- aid: in-toto:in-toto-spec
+  name: in-toto Attestation Specification
+  description: >-
+    The in-toto specification defines the metadata format for recording
+    software supply chain steps. It includes layout metadata that defines
+    the expected steps and their authorized functionaries, and link metadata
+    that records what actually happened at each step including materials
+    consumed and products produced. Verification compares layouts against
+    links to detect tampering.
+  humanURL: https://in-toto.io/specs/
+  properties:
+  - type: Documentation
+    url: https://in-toto.io/specs/
+  tags:
+  - Attestation
+  - Supply Chain
+  - Specification
+common:
+- type: Documentation
+  name: in-toto Documentation
+  description: Official in-toto documentation and specifications.
+  url: https://in-toto.io/docs/
+- type: GitHubOrg
+  name: in-toto GitHub
+  description: Source code and reference implementations.
+  url: https://github.com/in-toto
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
