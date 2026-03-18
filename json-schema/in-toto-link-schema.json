@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://in-toto.io/schemas/v1/link.json",
+  "title": "in-toto Link",
+  "description": "Schema for the in-toto Link metadata document, which records what actually happened at a single step in the software supply chain. A link captures the command that was run, the materials consumed (files present before the command), and the products produced (files present after the command), each identified by cryptographic hash. Links are signed by the functionary who performed the step.",
+  "type": "object",
+  "required": ["_type", "name", "materials", "products", "command", "byproducts", "environment"],
+  "properties": {
+    "_type": {
+      "type": "string",
+      "const": "link",
+      "description": "Identifies this metadata document as an in-toto link."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the step this link corresponds to. Must match a step name defined in the layout."
+    },
+    "command": {
+      "type": "array",
+      "description": "The command that was executed to perform this step, represented as an array of argument tokens.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "materials": {
+      "type": "object",
+      "description": "Artifact dictionary for files present before the step was executed. Keys are file paths; values are hash objects mapping algorithm name to hex digest.",
+      "additionalProperties": {
+        "$ref": "#/$defs/Hashes"
+      }
+    },
+    "products": {
+      "type": "object",
+      "description": "Artifact dictionary for files present after the step was executed. Keys are file paths; values are hash objects mapping algorithm name to hex digest.",
+      "additionalProperties": {
+        "$ref": "#/$defs/Hashes"
+      }
+    },
+    "byproducts": {
+      "type": "object",
+      "description": "Incidental outputs from the step execution, such as stdout, stderr, and return value. These are recorded for auditability but not used in artifact rule evaluation.",
+      "properties": {
+        "stdout": {
+          "type": "string",
+          "description": "Standard output captured from the step command."
+        },
+        "stderr": {
+          "type": "string",
+          "description": "Standard error output captured from the step command."
+        },
+        "return-value": {
+          "type": "integer",
+          "description": "Exit code returned by the step command."
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "description": "Additional environment information at the time the step was performed. May include variables, working directory, or platform details for auditability.",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "Hashes": {
+      "type": "object",
+      "description": "A map of cryptographic hash algorithm names to their corresponding hex-encoded digest values for a single artifact.",
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA-256 hex digest of the artifact."
+        },
+        "sha512": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{128}$",
+          "description": "SHA-512 hex digest of the artifact."
+        },
+        "sha3_256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA3-256 hex digest of the artifact."
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "description": "Hex-encoded digest for an alternate hash algorithm."
+      },
+      "minProperties": 1
+    }
+  }
+}

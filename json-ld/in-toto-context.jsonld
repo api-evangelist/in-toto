@@ -1,0 +1,183 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "intoto": "https://in-toto.io/vocab#",
+    "slsa": "https://slsa.dev/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sec": "https://w3id.org/security#",
+    "spdx": "https://spdx.org/rdf/terms#",
+
+    "Layout": "intoto:Layout",
+    "Step": "intoto:Step",
+    "Inspection": "intoto:Inspection",
+    "Link": "intoto:Link",
+    "Statement": "intoto:Statement",
+    "Subject": "intoto:Subject",
+    "DigestSet": "intoto:DigestSet",
+    "ArtifactRule": "intoto:ArtifactRule",
+    "Functionary": "intoto:Functionary",
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:softwareVersion",
+      "@type": "xsd:string"
+    },
+    "expires": {
+      "@id": "dcterms:valid",
+      "@type": "xsd:dateTime"
+    },
+    "created": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+
+    "steps": {
+      "@id": "intoto:steps",
+      "@container": "@set"
+    },
+    "inspect": {
+      "@id": "intoto:inspections",
+      "@container": "@set"
+    },
+    "keys": {
+      "@id": "sec:verificationMethod",
+      "@container": "@set"
+    },
+    "pubkeys": {
+      "@id": "intoto:authorizedKeys",
+      "@container": "@set"
+    },
+    "threshold": {
+      "@id": "intoto:threshold",
+      "@type": "xsd:integer"
+    },
+    "expected_command": {
+      "@id": "intoto:expectedCommand",
+      "@container": "@list"
+    },
+    "expected_materials": {
+      "@id": "intoto:expectedMaterials",
+      "@container": "@list"
+    },
+    "expected_products": {
+      "@id": "intoto:expectedProducts",
+      "@container": "@list"
+    },
+
+    "command": {
+      "@id": "intoto:command",
+      "@container": "@list"
+    },
+    "materials": {
+      "@id": "intoto:materials",
+      "@type": "@id"
+    },
+    "products": {
+      "@id": "intoto:products",
+      "@type": "@id"
+    },
+    "byproducts": {
+      "@id": "intoto:byproducts"
+    },
+    "environment": {
+      "@id": "intoto:environment"
+    },
+    "run": {
+      "@id": "intoto:runCommand",
+      "@container": "@list"
+    },
+
+    "subject": {
+      "@id": "intoto:subject",
+      "@container": "@set"
+    },
+    "predicateType": {
+      "@id": "intoto:predicateType",
+      "@type": "@id"
+    },
+    "predicate": {
+      "@id": "intoto:predicate"
+    },
+    "digest": {
+      "@id": "intoto:digest"
+    },
+    "sha256": {
+      "@id": "intoto:sha256",
+      "@type": "xsd:string"
+    },
+    "sha512": {
+      "@id": "intoto:sha512",
+      "@type": "xsd:string"
+    },
+    "gitCommit": {
+      "@id": "intoto:gitCommit",
+      "@type": "xsd:string"
+    },
+
+    "buildType": {
+      "@id": "slsa:buildType",
+      "@type": "@id"
+    },
+    "externalParameters": {
+      "@id": "slsa:externalParameters"
+    },
+    "internalParameters": {
+      "@id": "slsa:internalParameters"
+    },
+    "resolvedDependencies": {
+      "@id": "slsa:resolvedDependencies",
+      "@container": "@set"
+    },
+    "builder": {
+      "@id": "slsa:builder"
+    },
+    "buildDefinition": {
+      "@id": "slsa:buildDefinition"
+    },
+    "runDetails": {
+      "@id": "slsa:runDetails"
+    },
+    "invocationId": {
+      "@id": "slsa:invocationId",
+      "@type": "xsd:string"
+    },
+    "startedOn": {
+      "@id": "slsa:startedOn",
+      "@type": "xsd:dateTime"
+    },
+    "finishedOn": {
+      "@id": "slsa:finishedOn",
+      "@type": "xsd:dateTime"
+    },
+
+    "keytype": {
+      "@id": "sec:type",
+      "@type": "xsd:string"
+    },
+    "scheme": {
+      "@id": "sec:algorithm",
+      "@type": "xsd:string"
+    },
+    "keyval": {
+      "@id": "sec:publicKeyJwk"
+    },
+
+    "tags": {
+      "@id": "schema:keywords",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    }
+  }
+}

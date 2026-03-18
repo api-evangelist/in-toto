@@ -17,7 +17,7 @@ tags:
 - Cloud Native
 - Graduated
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-03-18'
 specificationVersion: '0.19'
 type: Index
 apis:
@@ -30,23 +30,119 @@ apis:
     that records what actually happened at each step including materials
     consumed and products produced. Verification compares layouts against
     links to detect tampering.
-  humanURL: https://in-toto.io/specs/
+  humanURL: https://in-toto.io/docs/specs/
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
   properties:
   - type: Documentation
-    url: https://in-toto.io/specs/
+    url: https://in-toto.io/docs/specs/
+  - type: Reference
+    url: https://github.com/in-toto/docs/blob/master/in-toto-spec.md
+  - type: JSONSchema
+    url: json-schema/in-toto-layout-schema.json
+  - type: JSONSchema
+    url: json-schema/in-toto-link-schema.json
+  - type: JSONSchema
+    url: json-schema/in-toto-attestation-schema.json
+  - type: JSON-LD
+    url: json-ld/in-toto-context.jsonld
   tags:
   - Attestation
   - Supply Chain
   - Specification
+- aid: in-toto:in-toto-attestation-framework
+  name: in-toto Attestation Framework
+  description: >-
+    The in-toto Attestation Framework provides a specification for generating
+    verifiable claims about any aspect of how a piece of software is produced.
+    It defines a fixed lightweight Statement structure with a subject and
+    predicate, and a set of standard predicate types covering common use cases
+    such as SLSA provenance. A future version of the in-toto specification will
+    incorporate this framework as the primary mechanism to express supply chain
+    claims.
+  humanURL: https://github.com/in-toto/attestation
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  properties:
+  - type: Documentation
+    url: https://github.com/in-toto/attestation/blob/main/README.md
+  - type: Reference
+    url: https://github.com/in-toto/attestation/tree/main/spec/v1
+  - type: GitHubRepository
+    url: https://github.com/in-toto/attestation
+  - type: JSONSchema
+    url: json-schema/in-toto-attestation-schema.json
+  - type: JSON-LD
+    url: json-ld/in-toto-context.jsonld
+  tags:
+  - Attestation
+  - Supply Chain
+  - Specification
+  - SLSA
+- aid: in-toto:in-toto-python
+  name: in-toto Python Reference Implementation
+  description: >-
+    The Python reference implementation of in-toto provides tools and libraries
+    for creating and verifying in-toto metadata. It includes the in-toto-run
+    command for wrapping supply chain steps, in-toto-record for multi-command
+    steps, and in-toto-verify for checking the full supply chain layout. This
+    implementation serves as the canonical reference for the specification.
+  humanURL: https://github.com/in-toto/in-toto
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  properties:
+  - type: Documentation
+    url: https://in-toto.readthedocs.io/
+  - type: Getting Started
+    url: https://in-toto.io/docs/getting-started/
+  - type: GitHubRepository
+    url: https://github.com/in-toto/in-toto
+  tags:
+  - Python
+  - Supply Chain
+  - Reference Implementation
+  - SDK
+- aid: in-toto:in-toto-golang
+  name: in-toto Go Implementation
+  description: >-
+    A Go implementation of the in-toto specification that enables supply chain
+    integrity verification in Go-based build and deployment pipelines. It
+    provides the same core functionality as the Python reference implementation
+    including generating link metadata, creating layouts, and verifying supply
+    chains. It supports ITE-7 for X.509-based signing via SPIFFE/SPIRE
+    integration.
+  humanURL: https://github.com/in-toto/in-toto-golang
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  properties:
+  - type: Documentation
+    url: https://pkg.go.dev/github.com/in-toto/in-toto-golang
+  - type: GitHubRepository
+    url: https://github.com/in-toto/in-toto-golang
+  tags:
+  - Go
+  - Supply Chain
+  - Implementation
+  - SDK
 common:
+- type: Website
+  url: https://in-toto.io
 - type: Documentation
-  name: in-toto Documentation
-  description: Official in-toto documentation and specifications.
   url: https://in-toto.io/docs/
-- type: GitHubOrg
-  name: in-toto GitHub
-  description: Source code and reference implementations.
+- type: Getting Started
+  url: https://in-toto.io/docs/getting-started/
+- type: Blog
+  url: https://in-toto.io/blog/
+- type: Community
+  url: https://in-toto.io/community/
+- type: FAQ
+  url: https://in-toto.io/docs/faq/
+- type: GitHubOrganization
   url: https://github.com/in-toto
+- type: JSONSchema
+  url: json-schema/in-toto-layout-schema.json
+- type: JSONSchema
+  url: json-schema/in-toto-link-schema.json
+- type: JSONSchema
+  url: json-schema/in-toto-attestation-schema.json
+- type: JSON-LD
+  url: json-ld/in-toto-context.jsonld
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

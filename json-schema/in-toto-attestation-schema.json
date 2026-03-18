@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://in-toto.io/schemas/v1/attestation.json",
+  "title": "in-toto Attestation Statement",
+  "description": "Schema for the in-toto Attestation Framework Statement structure. A Statement is a verifiable claim about one or more software subjects. It consists of a fixed lightweight envelope with a subject (the artifact being described) and a predicate (the claim about that subject). Common predicate types include SLSA Provenance, SPDX SBOM, and Vulnerability Scan results.",
+  "type": "object",
+  "required": ["_type", "subject", "predicateType", "predicate"],
+  "properties": {
+    "_type": {
+      "type": "string",
+      "const": "https://in-toto.io/Statement/v1",
+      "description": "URI identifying this document as an in-toto Attestation Framework Statement v1."
+    },
+    "subject": {
+      "type": "array",
+      "description": "One or more software artifacts that this statement applies to. Each subject is identified by name and cryptographic digest.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Subject"
+      }
+    },
+    "predicateType": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI that identifies the schema and semantics of the predicate. Well-known values include https://slsa.dev/provenance/v1 and https://spdx.dev/Document."
+    },
+    "predicate": {
+      "type": "object",
+      "description": "The claim about the subjects. The structure is defined by the predicateType URI. May describe provenance, vulnerability scan results, test results, code review, or any other supply chain assertion.",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "description": "A single software artifact that is the subject of this attestation, identified by name and one or more cryptographic digests.",
+      "required": ["name", "digest"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable name for the artifact. For files, this is typically a path or filename. For container images, this is typically an image reference without a digest."
+        },
+        "digest": {
+          "$ref": "#/$defs/DigestSet"
+        }
+      }
+    },
+    "DigestSet": {
+      "type": "object",
+      "description": "A set of cryptographic digests for an artifact, keyed by hash algorithm name. At least one digest must be present.",
+      "minProperties": 1,
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA-256 hex digest."
+        },
+        "sha512": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{128}$",
+          "description": "SHA-512 hex digest."
+        },
+        "sha1": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{40}$",
+          "description": "SHA-1 hex digest. Use is discouraged for new attestations."
+        },
+        "gitCommit": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{40}$",
+          "description": "Full Git commit SHA-1 hash identifying a specific commit."
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "description": "Digest value for an alternate algorithm."
+      }
+    },
+    "SLSAProvenancePredicate": {
+      "type": "object",
+      "description": "SLSA Provenance predicate (v1) describing how an artifact was built. Used with predicateType https://slsa.dev/provenance/v1.",
+      "required": ["buildDefinition", "runDetails"],
+      "properties": {
+        "buildDefinition": {
+          "type": "object",
+          "description": "Describes the inputs to the build: the build type, external parameters, and resolved dependencies.",
+          "required": ["buildType", "externalParameters"],
+          "properties": {
+            "buildType": {
+              "type": "string",
+              "format": "uri",
+              "description": "URI identifying the build system type and the schema for externalParameters."
+            },
+            "externalParameters": {
+              "type": "object",
+              "description": "The parameters that were supplied by the caller of the build system. Structure depends on the buildType.",
+              "additionalProperties": true
+            },
+            "internalParameters": {
+              "type": "object",
+              "description": "Parameters set by the build system itself, not controllable by the caller.",
+              "additionalProperties": true
+            },
+            "resolvedDependencies": {
+              "type": "array",
+              "description": "External artifacts that influenced the build and are not explicitly listed in externalParameters.",
+              "items": {
+                "$ref": "#/$defs/ResourceDescriptor"
+              }
+            }
+          }
+        },
+        "runDetails": {
+          "type": "object",
+          "description": "Details specific to this particular execution of the build.",
+          "required": ["builder"],
+          "properties": {
+            "builder": {
+              "type": "object",
+              "description": "The build system that produced this attestation.",
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URI identifying the builder."
+                },
+                "version": {
+                  "type": "object",
+                  "description": "Version information for components of the builder.",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "builderDependencies": {
+                  "type": "array",
+                  "description": "Artifacts that the builder used that are not part of the build definition.",
+                  "items": {
+                    "$ref": "#/$defs/ResourceDescriptor"
+                  }
+                }
+              }
+            },
+            "metadata": {
+              "type": "object",
+              "description": "Metadata about this build run.",
+              "properties": {
+                "invocationId": {
+                  "type": "string",
+                  "description": "Unique identifier for this build invocation."
+                },
+                "startedOn": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp when the build started."
+                },
+                "finishedOn": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp when the build finished."
+                }
+              }
+            },
+            "byproducts": {
+              "type": "array",
+              "description": "Additional artifacts produced by the build that are not the primary output.",
+              "items": {
+                "$ref": "#/$defs/ResourceDescriptor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ResourceDescriptor": {
+      "type": "object",
+      "description": "A reference to a software artifact used as input to or produced by a build. Includes a URI and optional digest and annotations.",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI identifying the resource."
+        },
+        "digest": {
+          "$ref": "#/$defs/DigestSet"
+        },
+        "name": {
+          "type": "string",
+          "description": "Semver or local name used to reference this resource within the build definition."
+        },
+        "downloadLocation": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI where this resource can be downloaded."
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "MIME type of the resource."
+        },
+        "annotations": {
+          "type": "object",
+          "description": "Additional key-value metadata about the resource.",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}
