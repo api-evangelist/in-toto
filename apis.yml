@@ -1,5 +1,5 @@
 aid: in-toto
-name: in-toto
+name: In-Toto
 description: >-
   in-toto is a CNCF graduated framework for securing the integrity of
   software supply chains. It provides a specification for generating and
