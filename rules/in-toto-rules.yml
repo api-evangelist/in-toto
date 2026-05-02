@@ -1,0 +1,52 @@
+aid: in-toto
+name: in-toto Supply Chain Rules
+description: >-
+  Operational guardrails for adopting the in-toto framework to secure software
+  supply chains. These rules capture conventions for layouts, link metadata,
+  signing, attestation, and verification across reference implementations.
+rules:
+  - id: in-toto-layout-authority
+    name: Layouts are signed by a project owner
+    description: >-
+      Layout metadata defines the expected steps and authorized functionaries
+      and must be signed by a designated project-owner key. Verifiers anchor
+      trust in the owner key, so its provenance and rotation policy must be
+      explicit.
+  - id: in-toto-link-coverage
+    name: Cover every supply chain step with a link
+    description: >-
+      Each step declared in a layout must produce a corresponding signed link
+      file recording materials consumed and products produced. Missing or
+      unsigned links must fail verification.
+  - id: in-toto-attestation-statement
+    name: Use the in-toto Attestation Statement envelope
+    description: >-
+      New attestations should use the v1 Statement format (subject, predicate,
+      predicateType) wrapped in a DSSE envelope. Predicates such as SLSA
+      Provenance, SPDX, or CycloneDX must be referenced by their canonical
+      predicateType URIs.
+  - id: in-toto-signing-keys
+    name: Bind functionaries to verifiable signing keys
+    description: >-
+      Functionary identities in layouts must be bound to keys recoverable by
+      verifiers, whether GPG, X.509 (ITE-7 / SPIFFE), or Sigstore-issued
+      certificates. Verification must reject metadata signed by keys not
+      authorized for that step.
+  - id: in-toto-product-material-flow
+    name: Materials of one step match products of the previous
+    description: >-
+      Layout inspection rules should enforce that materials consumed by a
+      step match products produced by the upstream step, modulo declared
+      additions and removals, to detect tampering between steps.
+  - id: in-toto-no-secrets-in-links
+    name: Do not record secrets in link metadata
+    description: >-
+      Link files capture command lines and environment context. Strip API
+      tokens, passwords, and other secrets from recorded commands and
+      byproducts before publishing links to a transparency log or registry.
+  - id: in-toto-verify-before-deploy
+    name: Verify the full chain before deployment
+    description: >-
+      Deployment systems must run in-toto-verify (or an equivalent verifier)
+      against the final product and its layout before promoting an artifact
+      to a production environment. Verification failures must block release.

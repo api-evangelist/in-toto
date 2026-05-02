@@ -17,7 +17,7 @@ tags:
   - Supply Chain Security
   - Verification
 created: '2026-03-16'
-modified: '2026-03-18'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 type: Index
 apis:
@@ -143,6 +143,8 @@ common:
     url: json-schema/in-toto-attestation-schema.json
   - type: JSON-LD
     url: json-ld/in-toto-context.jsonld
+  - type: Rules
+    url: rules/in-toto-rules.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
