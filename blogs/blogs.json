@@ -1,0 +1,13 @@
+{
+  "repo": "in-toto",
+  "feeds": [
+    {
+      "source": "https://in-toto.io/blog/",
+      "feed_url": "https://in-toto.io/blog/index.xml",
+      "saved": 1,
+      "title": "Blog on in-toto"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-05-03T23:29:27Z"
+}
