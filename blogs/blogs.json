@@ -4,10 +4,10 @@
     {
       "source": "https://in-toto.io/blog/",
       "feed_url": "https://in-toto.io/blog/index.xml",
-      "saved": 1,
-      "title": "Blog on in-toto"
+      "title": "Blog on in-toto",
+      "saved": 0
     }
   ],
   "post_count": 1,
-  "fetched": "2026-05-03T23:29:27Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
