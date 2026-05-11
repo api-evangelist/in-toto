@@ -145,6 +145,10 @@ common:
     url: json-ld/in-toto-context.jsonld
   - type: Rules
     url: rules/in-toto-rules.yml
+  - type: Integrations
+    url: https://in-toto.io/ecosystem/
+integrations:
+  - name: Adopters
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
