@@ -43,7 +43,7 @@ apis:
         url: json-schema/in-toto-link-schema.json
       - type: JSONSchema
         url: json-schema/in-toto-attestation-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/in-toto-context.jsonld
     tags:
       - Attestation
@@ -70,7 +70,7 @@ apis:
         url: https://github.com/in-toto/attestation
       - type: JSONSchema
         url: json-schema/in-toto-attestation-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/in-toto-context.jsonld
     tags:
       - Attestation
@@ -90,7 +90,7 @@ apis:
     properties:
       - type: Documentation
         url: https://in-toto.readthedocs.io/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://in-toto.io/docs/getting-started/
       - type: GitHubRepository
         url: https://github.com/in-toto/in-toto
@@ -125,7 +125,7 @@ common:
     url: https://in-toto.io
   - type: Documentation
     url: https://in-toto.io/docs/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://in-toto.io/docs/getting-started/
   - type: Blog
     url: https://in-toto.io/blog/
@@ -141,7 +141,7 @@ common:
     url: json-schema/in-toto-link-schema.json
   - type: JSONSchema
     url: json-schema/in-toto-attestation-schema.json
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/in-toto-context.jsonld
   - type: Rules
     url: rules/in-toto-rules.yml
