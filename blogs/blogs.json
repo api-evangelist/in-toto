@@ -2,12 +2,20 @@
   "repo": "in-toto",
   "feeds": [
     {
-      "source": "https://in-toto.io/blog/",
+      "source": "https://in-toto.io/blog/index.xml",
       "feed_url": "https://in-toto.io/blog/index.xml",
-      "title": "Blog on in-toto",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://in-toto.io/docs/getting-started/",
+      "feed_url": "https://in-toto.io/docs/getting-started/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 1,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
