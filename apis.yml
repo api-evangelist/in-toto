@@ -8,7 +8,7 @@ description: >-
   authorized party and that materials and products are not tampered with
   between steps.
 url: https://in-toto.io
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Cloud Native
   - Graduated
@@ -31,7 +31,7 @@ apis:
       consumed and products produced. Verification compares layouts against
       links to detect tampering.
     humanURL: https://in-toto.io/docs/specs/
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     properties:
       - type: Documentation
         url: https://in-toto.io/docs/specs/
@@ -60,7 +60,7 @@ apis:
       incorporate this framework as the primary mechanism to express supply chain
       claims.
     humanURL: https://github.com/in-toto/attestation
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     properties:
       - type: Documentation
         url: https://github.com/in-toto/attestation/blob/main/README.md
@@ -86,7 +86,7 @@ apis:
       steps, and in-toto-verify for checking the full supply chain layout. This
       implementation serves as the canonical reference for the specification.
     humanURL: https://github.com/in-toto/in-toto
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     properties:
       - type: Documentation
         url: https://in-toto.readthedocs.io/
@@ -109,7 +109,7 @@ apis:
       chains. It supports ITE-7 for X.509-based signing via SPIFFE/SPIRE
       integration.
     humanURL: https://github.com/in-toto/in-toto-golang
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     properties:
       - type: Documentation
         url: https://pkg.go.dev/github.com/in-toto/in-toto-golang
