@@ -121,6 +121,8 @@ apis:
       - SDK
       - Supply Chain
 common:
+  - type: DomainSecurity
+    url: security/in-toto-domain-security.yml
   - type: Website
     url: https://in-toto.io
   - type: Documentation
