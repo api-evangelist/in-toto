@@ -133,6 +133,10 @@ apis:
       - SDK
       - Supply Chain
 common:
+  - type: IssueTracker
+    url: https://github.com/in-toto/attestation/issues
+  - type: Releases
+    url: https://github.com/in-toto/attestation/releases
   - type: DomainSecurity
     url: security/in-toto-domain-security.yml
   - type: Website
