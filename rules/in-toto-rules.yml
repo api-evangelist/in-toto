@@ -1,5 +1,5 @@
-aid: in-toto
-name: in-toto Supply Chain Rules
+x-aid: in-toto
+x-name: in-toto Supply Chain Rules
 description: >-
   Operational guardrails for adopting the in-toto framework to secure software
   supply chains. These rules capture conventions for layouts, link metadata,
