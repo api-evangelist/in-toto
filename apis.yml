@@ -10,6 +10,10 @@ description: >-
 url: https://in-toto.io
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: in-toto/in-toto
+    spdx: NOASSERTION
+    stars: 1042
   open_source: unknown
   commercial: false
   callable_host: false
@@ -17,7 +21,7 @@ deliveryModel:
   confidence: low
   source:
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
