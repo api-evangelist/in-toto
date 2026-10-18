@@ -39,3 +39,59 @@
     detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
+- slug: in-toto-sigstore
+  label: Sigstore
+  partner_name: Sigstore
+  category: Artifact signing (Sigstore)
+  type: register
+  channel: standard-directory
+  evidence: https://openssf.landscape2.io/?category=sigstore
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: OpenSSF Landscape (github.com/ossf/ossf-landscape landscape.yml @0c50858516), Sigstore
+    standard: Sigstore
+    spec_file: null
+    role: sigstore-integration
+    registered_name: in-toto
+    registered_names:
+    - in-toto
+    website: https://in-toto.io/
+    matched_domain: in-toto.io
+    matched_by: domain
+    landscape_subcategories:
+    - Integrations
+    signal_note: 'participation only: an Integrations / Language Clients / Projects entry means the supplier integrates
+      Sigstore signing; entries are context, never counted. ''Signed With'' users are held'
+    detected_by: sweep-software-supply-chain.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: in-toto-spdx-linux-foundation
+  label: SPDX (Linux Foundation)
+  partner_name: SPDX (Linux Foundation)
+  category: SBOM standard (SPDX)
+  type: register
+  channel: standard-directory
+  evidence: https://spdx.dev/use/spdx-tools/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: SPDX Tools (spdx.dev/use/spdx-tools)
+    standard: SPDX (ISO/IEC 5962)
+    spec_file: null
+    role: spdx-tool
+    registered_name: in-toto
+    tools:
+    - in-toto
+    website: https://in-toto.io
+    matched_domain: in-toto.io
+    matched_by: domain
+    classification: Produce/Build
+    version_support: '2.3'
+    spdx_member: false
+    signal_note: 'participation only: a listed tool ships SPDX support; classification and versions are context'
+    detected_by: sweep-software-supply-chain.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
