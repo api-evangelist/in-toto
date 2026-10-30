@@ -1,4 +1,4 @@
-# in-toto (in-toto)
+# In-Toto
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,110 +66,127 @@
 
 in-toto is a CNCF graduated framework for securing the integrity of software supply chains. It provides a specification for generating and verifying metadata about each step in a software supply chain, from source code to deployment. in-toto ensures that each step is performed by the authorized party and that materials and products are not tampered with between steps.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/in-toto/refs/heads/main/apis.yml)
+**Areas:** Cloud-Native · Graduated · Security · Software Integrity · Supply Chain Security · Verification
 
-## Scope
+## In-Toto on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for In-Toto is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/in-toto/](https://apis.io/providers/in-toto/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (4)
 
- - Cloud Native, Graduated, Security, Software Integrity, Supply Chain Security, Verification
+- [in-toto Attestation Specification](https://apis.io/apis/in-toto/in-toto-spec/) — The in-toto specification defines the metadata format for recording software supply chain steps. It includes layout metadata that defines the expected steps…
+- [in-toto Attestation Framework](https://apis.io/apis/in-toto/in-toto-attestation-framework/) — The in-toto Attestation Framework provides a specification for generating verifiable claims about any aspect of how a piece of software is produced. It…
+- [in-toto Python Reference Implementation](https://apis.io/apis/in-toto/in-toto-python/) — The Python reference implementation of in-toto provides tools and libraries for creating and verifying in-toto metadata. It includes the in-toto-run command…
+- [in-toto Go Implementation](https://apis.io/apis/in-toto/in-toto-golang/) — A Go implementation of the in-toto specification that enables supply chain integrity verification in Go-based build and deployment pipelines. It provides…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON Schema (3)
 
-### in-toto Attestation Specification
+The data models the API reads and writes.
 
-The in-toto specification defines the metadata format for recording software supply chain steps. It includes layout metadata that defines the expected steps and their authorized functionaries, and link metadata that records what actually happened at each step including materials consumed and products produced. Verification compares layouts against links to detect tampering.
+- [in-toto Attestation Statement](https://apis.io/schemas/in-toto/in-toto-attestation/)
+- [in-toto Layout](https://apis.io/schemas/in-toto/in-toto-layout/)
+- [in-toto Link](https://apis.io/schemas/in-toto/in-toto-link/)
 
-**Human URL:** [https://in-toto.io/docs/specs/](https://in-toto.io/docs/specs/)
+#### JSON-LD (1)
 
-#### Tags:
+Linked-data contexts for the provider's vocabulary.
 
- - Attestation, Specification, Supply Chain
+- [In Toto Context](https://apis.io/jsonld/in-toto/in-toto-context/)
 
-#### Properties
+#### Governance rules (2)
 
-- [Documentation](https://in-toto.io/docs/specs/)
-- [Reference](https://github.com/in-toto/docs/blob/master/in-toto-spec.md)
-- [JSONSchema](json-schema/in-toto-layout-schema.json)
-- [JSONSchema](json-schema/in-toto-link-schema.json)
-- [JSONSchema](json-schema/in-toto-attestation-schema.json)
-- [JSON-LD](json-ld/in-toto-context.jsonld)
+Spectral rulesets for the provider's contracts.
 
-### in-toto Attestation Framework
+- [In-Toto — jsonschema rules](https://apis.io/rules/in-toto/in-toto-jsonschema-spectral-rules/)
+- [In-Toto API Rules](https://apis.io/rules/in-toto/in-toto-rules/)
 
-The in-toto Attestation Framework provides a specification for generating verifiable claims about any aspect of how a piece of software is produced. It defines a fixed lightweight Statement structure with a subject and predicate, and a set of standard predicate types covering common use cases such as SLSA provenance.
+#### Security (1)
 
-**Human URL:** [https://github.com/in-toto/attestation](https://github.com/in-toto/attestation)
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags:
+- [In Toto Domain Security](https://apis.io/security/in-toto/in-toto-domain-security/)
 
- - Attestation, SLSA, Specification, Supply Chain
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://github.com/in-toto/attestation/blob/main/README.md)
-- [Reference](https://github.com/in-toto/attestation/tree/main/spec/v1)
-- [GitHubRepository](https://github.com/in-toto/attestation)
-- [JSONSchema](json-schema/in-toto-attestation-schema.json)
-- [JSON-LD](json-ld/in-toto-context.jsonld)
+- [In Toto Plans Pricing](https://apis.io/plans/in-toto/in-toto-plans-pricing/)
 
-### in-toto Python Reference Implementation
+#### Rate limits (1)
 
-The Python reference implementation of in-toto provides tools and libraries for creating and verifying in-toto metadata. It includes the in-toto-run command for wrapping supply chain steps, in-toto-record for multi-command steps, and in-toto-verify for checking the full supply chain layout.
+Published request limits.
 
-**Human URL:** [https://github.com/in-toto/in-toto](https://github.com/in-toto/in-toto)
+- [In Toto Rate Limits](https://apis.io/rate-limits/in-toto/in-toto-rate-limits/)
 
-#### Tags:
+#### FinOps (1)
 
- - Python, Reference Implementation, SDK, Supply Chain
+What the API costs to run, by operation.
 
-#### Properties
+- [In Toto Finops](https://apis.io/finops/in-toto/in-toto-finops/)
 
-- [Documentation](https://in-toto.readthedocs.io/)
-- [Getting Started](https://in-toto.io/docs/getting-started/)
-- [GitHubRepository](https://github.com/in-toto/in-toto)
+## Where to find this API
 
-### in-toto Go Implementation
-
-A Go implementation of the in-toto specification that enables supply chain integrity verification in Go-based build and deployment pipelines. It supports ITE-7 for X.509-based signing via SPIFFE/SPIRE integration.
-
-**Human URL:** [https://github.com/in-toto/in-toto-golang](https://github.com/in-toto/in-toto-golang)
-
-#### Tags:
-
- - Go, Implementation, SDK, Supply Chain
-
-#### Properties
-
-- [Documentation](https://pkg.go.dev/github.com/in-toto/in-toto-golang)
-- [GitHubRepository](https://github.com/in-toto/in-toto-golang)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://in-toto.io)
 - [Documentation](https://in-toto.io/docs/)
-- [Getting Started](https://in-toto.io/docs/getting-started/)
+- [Getting started](https://in-toto.io/docs/getting-started/)
 - [Blog](https://in-toto.io/blog/)
-- [Community](https://in-toto.io/community/)
-- [FAQ](https://in-toto.io/docs/faq/)
-- [GitHubOrganization](https://github.com/in-toto)
-- [JSONSchema](json-schema/in-toto-layout-schema.json)
-- [JSONSchema](json-schema/in-toto-link-schema.json)
-- [JSONSchema](json-schema/in-toto-attestation-schema.json)
-- [JSON-LD](json-ld/in-toto-context.jsonld)
-- [Rules](rules/in-toto-rules.yml)
+- [GitHub](https://github.com/in-toto)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 25.8** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 26.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/in-toto/](https://apis.io/providers/in-toto/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for In-Toto: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/in-toto/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
